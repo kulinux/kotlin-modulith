@@ -21,7 +21,7 @@ class PaymentManagementShould {
         paymentManagement?.create(aProduct)
 
         assertThat(events)
-            .contains(ProductCreated::class.java)
+            .contains(PaymentCreated::class.java)
             .matching { it.product == aProduct }
     }
 }

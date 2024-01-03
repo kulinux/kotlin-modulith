@@ -43,9 +43,11 @@ dependencies {
     // This dependency is used by the application.
     implementation("com.google.guava:guava:32.1.1-jre")
 
+    testImplementation("org.springframework.modulith:spring-modulith-starter-test")
+    testImplementation("com.ninja-squad:springmockk:4.0.0")
+
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.modulith:spring-modulith-starter-core")
-    implementation("org.springframework.modulith:spring-modulith-starter-test")
 }
 
 

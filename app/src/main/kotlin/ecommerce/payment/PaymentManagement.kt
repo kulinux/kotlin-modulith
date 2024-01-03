@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service
 @Service
 class PaymentManagement(val events: ApplicationEventPublisher) {
     fun create(product: Product) {
-        events.publishEvent(ProductCreated(product))
+        events.publishEvent(PaymentCreated(product))
     }
 }
