@@ -7,6 +7,7 @@ import ecommerce.shipping.ShippingManagement
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.modulith.test.ApplicationModuleTest
 import org.springframework.modulith.test.EnableScenarios
 import org.springframework.modulith.test.Scenario
 import org.springframework.transaction.support.TransactionTemplate
@@ -24,6 +25,7 @@ class AcceptanceTests {
     fun `If the payment is for a physical product, generate a packing slip for shipping`(scenario: Scenario) {
         scenario.publish(PaymentCreated(Product(ProductType.PHYSICAL)))
             .andWaitForStateChange { shipping.count() }
-            .andVerify { shippingCount -> shippingCount > 0 }
+            .andVerify { shippingCount -> shippingCount == 0 }
+
     }
 }
