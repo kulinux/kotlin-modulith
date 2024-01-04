@@ -13,6 +13,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.0"
 
     kotlin("plugin.spring") version "1.9.0"
+    kotlin("plugin.jpa") version "1.9.0"
 
     // Apply the application plugin to add support for building a CLI application in Java.
     application
@@ -46,8 +47,11 @@ dependencies {
     testImplementation("org.springframework.modulith:spring-modulith-starter-test")
     testImplementation("com.ninja-squad:springmockk:4.0.0")
 
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.modulith:spring-modulith-starter-core")
+
+    runtimeOnly("com.h2database:h2")
 }
 
 

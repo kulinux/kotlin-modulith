@@ -7,13 +7,15 @@ import ecommerce.shipping.ShippingManagement
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.modulith.test.ApplicationModuleTest
 import org.springframework.modulith.test.EnableScenarios
 import org.springframework.modulith.test.Scenario
+import org.springframework.transaction.support.TransactionTemplate
+
 
 @SpringBootTest
 @EnableScenarios
 class AcceptanceTests {
+
 
     @Autowired
     private lateinit var shipping: ShippingManagement

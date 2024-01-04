@@ -1,6 +1,5 @@
 package ecommerce.payment
 
-import ecommerce.shipping.ShippingManagement
 import org.springframework.context.ApplicationEventPublisher
 import org.springframework.stereotype.Service
 

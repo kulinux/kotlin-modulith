@@ -7,6 +7,6 @@ import org.springframework.stereotype.Service
 class PackingSlipGenerator {
 
     fun generate(paymentCreated: PaymentCreated): ByteArray {
-        TODO("Not Implemented")
+        return byteArrayOf()
     }
 }
