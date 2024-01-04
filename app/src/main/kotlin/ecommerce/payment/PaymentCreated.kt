@@ -1,4 +1,3 @@
 package ecommerce.payment
 
-class PaymentCreated(val product: Product) {
-}
+data class PaymentCreated(val product: Product)
