@@ -44,5 +44,4 @@ class PackingSlipManagementShould {
             .matching { it.binary == binary }
 
     }
-
 }

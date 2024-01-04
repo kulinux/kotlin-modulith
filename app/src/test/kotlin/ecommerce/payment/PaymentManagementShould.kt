@@ -14,6 +14,7 @@ class PaymentManagementShould {
     private val paymentManagement: PaymentManagement? = null
 
 
+
     @Test
     fun generateProductCreatedEventWhenCreated(events: AssertablePublishedEvents) {
 
