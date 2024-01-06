@@ -14,4 +14,7 @@ class RoyaltyManagement {
     }
 
     fun count(): Int? = count
+    fun reset() {
+        count = null
+    }
 }

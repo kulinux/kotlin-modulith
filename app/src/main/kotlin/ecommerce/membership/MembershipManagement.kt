@@ -1,20 +1,21 @@
 package ecommerce.shipping
 
-import ecommerce.packingslip.PackingSlipCreated
+import ecommerce.payment.PaymentCreated
 import org.springframework.context.event.EventListener
 import org.springframework.stereotype.Service
 
 @Service
-class ShippingManagement {
+class MembershipManagement {
 
     private var count: Int? = null
 
     @EventListener
-    fun on(event: PackingSlipCreated) {
+    fun on(event: PaymentCreated) {
         count = 1
     }
 
     fun count(): Int? = count
+
     fun reset() {
         count = null
     }

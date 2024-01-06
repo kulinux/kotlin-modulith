@@ -2,10 +2,11 @@ package ecommerce.payment
 
 
 enum class ProductType {
-    PHYSICAL
+    PHYSICAL,
+    MEMBERSHIP
 }
 
 enum class ProductSubtype {
     BOOK
 }
-class Product(type: ProductType, subtype: ProductSubtype? = null)
+class Product(val type: ProductType, val subtype: ProductSubtype? = null)
