@@ -4,6 +4,8 @@ package ecommerce.payment
 enum class ProductType {
     PHYSICAL
 }
-class Product(type: ProductType) {
 
+enum class ProductSubtype {
+    BOOK
 }
+class Product(type: ProductType, subtype: ProductSubtype? = null)
