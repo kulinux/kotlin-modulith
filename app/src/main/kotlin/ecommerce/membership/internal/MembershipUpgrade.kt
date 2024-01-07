@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service
 
 
 @Service
-class MembershipUpgrade {
+class MembershipUpgrade(val emailSender: EmailSender) {
     fun upgrade(product: Product) {
-        TODO("Not yet implemented")
+        emailSender.send()
     }
 }
