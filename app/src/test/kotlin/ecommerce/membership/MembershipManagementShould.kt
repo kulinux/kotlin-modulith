@@ -1,6 +1,7 @@
 package ecommerce.membership
 
 import com.ninjasquad.springmockk.MockkBean
+import ecommerce.membership.internal.MembershipCreate
 import ecommerce.payment.PaymentCreated
 import ecommerce.payment.Product
 import ecommerce.payment.ProductSubtype
@@ -22,6 +23,10 @@ class MembershipManagementShould {
     @MockkBean(relaxed = true)
     private lateinit var membershipUpgrade: MembershipUpgrade
 
+    @MockkBean(relaxed = true)
+    private lateinit var membershipCreate: MembershipCreate
+
+
     @Test
     fun `If the payment is an upgrade to a membership, apply the upgrade`() {
         val product = Product(ProductType.MEMBERSHIP, ProductSubtype.UPGRADE)
@@ -29,6 +34,14 @@ class MembershipManagementShould {
         event.publishEvent(paymentCreated)
 
         verify { membershipUpgrade.upgrade(product) }
+    }
 
+    @Test
+    fun `If the payment is a create to a membership, apply the create`() {
+        val product = Product(ProductType.MEMBERSHIP)
+        val paymentCreated = PaymentCreated(product)
+        event.publishEvent(paymentCreated)
+
+        verify { membershipCreate.create(product) }
     }
 }

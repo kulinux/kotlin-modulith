@@ -1,5 +1,6 @@
 package ecommerce.membership
 
+import ecommerce.membership.internal.MembershipCreate
 import ecommerce.membership.internal.MembershipUpgrade
 import ecommerce.payment.PaymentCreated
 import ecommerce.payment.ProductSubtype
@@ -8,17 +9,19 @@ import org.springframework.context.event.EventListener
 import org.springframework.stereotype.Service
 
 @Service
-class MembershipManagement(val membershipUpgrade: MembershipUpgrade) {
+class MembershipManagement(val membershipUpgrade: MembershipUpgrade, val membershipCreate: MembershipCreate) {
 
     private var count: Int? = null
 
     @EventListener
     fun on(event: PaymentCreated) {
         count = 1
+        if (event.product.type == ProductType.MEMBERSHIP && event.product.subtype == null) {
+            membershipCreate.create(event.product)
+        }
         if (event.product.type == ProductType.MEMBERSHIP && event.product.subtype == ProductSubtype.UPGRADE) {
             membershipUpgrade.upgrade(event.product)
         }
-
     }
 
     fun count(): Int? = count
