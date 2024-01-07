@@ -5,7 +5,7 @@ import ecommerce.payment.PaymentCreated
 import ecommerce.payment.Product
 import ecommerce.payment.ProductSubtype
 import ecommerce.payment.ProductType
-import ecommerce.shipping.MembershipManagement
+import ecommerce.membership.MembershipManagement
 import ecommerce.shipping.ShippingManagement
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach

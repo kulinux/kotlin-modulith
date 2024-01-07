@@ -7,6 +7,7 @@ enum class ProductType {
 }
 
 enum class ProductSubtype {
-    BOOK
+    BOOK,
+    UPGRADE
 }
 class Product(val type: ProductType, val subtype: ProductSubtype? = null)
