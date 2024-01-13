@@ -3,8 +3,12 @@ package ecommerce
 import ecommerce.inventory.RoyaltyManagement
 import ecommerce.membership.MembershipManagement
 import ecommerce.order.OrderSubmitted
+import ecommerce.order.Payment
 import ecommerce.order.Source
 import ecommerce.payment.*
+import ecommerce.product.Product
+import ecommerce.product.ProductSubtype
+import ecommerce.product.ProductType
 import ecommerce.shipping.ShippingManagement
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
@@ -72,13 +76,26 @@ class AcceptanceTests {
     @Test
     fun `If we accept an order over the web, then we have to wait for payment to arrive`(scenario: Scenario) {
         //when order is submitted over the web
-        scenario.publish(OrderSubmitted(Product(ProductType.MEMBERSHIP), Source.WEB))
+        scenario.publish(OrderSubmitted(Product(ProductType.MEMBERSHIP), Source.WEB, Payment.TRANSFER))
             .andWaitForEventOfType(PaymentConfirmed::class.java)
             .toArrive()
     }
 
-    fun `If we accept an order over the web that its a credit-card order In the case of credit card orders, we can process the order immediately and ship the goods, but only if the goods are in stock If they are not currently in stock, we have to delay processing credit card orders until the become available again`() {
+    @Test
+    fun `If we accept an order over the web that its a credit-card order In the case of credit card orders, we can process the order immediately`(
+        scenario: Scenario
+    ) {
+        val ts = System.currentTimeMillis()
+        scenario
+            .publish(OrderSubmitted(Product(ProductType.MEMBERSHIP), Source.WEB, Payment.CREDIT_CARD))
+            .forEventOfType(PaymentConfirmed::class.java)
+            .toArriveAndVerify { it -> assertThat(it.timestamp - ts).isLessThan(1000) }
+    }
 
+    @Test
+    fun `If we accept an order over the web that its a credit-card order In the case of credit card orders, we can ship the goods, but only if the goods are in stock If they are not currently in stock, we have to delay processing credit card orders until the become available again`(
+        scenario: Scenario
+    ) {
     }
 
 }

@@ -1,3 +1,3 @@
 package ecommerce.payment
 
-class PaymentConfirmed
+class PaymentConfirmed(val timestamp: Long = System.currentTimeMillis())

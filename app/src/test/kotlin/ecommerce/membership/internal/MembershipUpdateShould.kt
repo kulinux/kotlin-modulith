@@ -1,6 +1,6 @@
 package ecommerce.membership.internal
 
-import ecommerce.payment.Product
+import ecommerce.product.Product
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.jupiter.api.BeforeEach

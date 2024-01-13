@@ -1,6 +1,6 @@
 package ecommerce.membership.internal
 
-import ecommerce.payment.Product
+import ecommerce.product.Product
 import org.springframework.stereotype.Service
 
 

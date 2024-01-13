@@ -3,8 +3,8 @@ package ecommerce.packingslip
 import com.ninjasquad.springmockk.MockkBean
 import ecommerce.packingslip.generator.PackingSlipGenerator
 import ecommerce.payment.PaymentCreated
-import ecommerce.payment.Product
-import ecommerce.payment.ProductType
+import ecommerce.product.Product
+import ecommerce.product.ProductType
 import io.mockk.every
 import io.mockk.verify
 import org.assertj.core.api.Assertions

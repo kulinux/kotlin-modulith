@@ -3,9 +3,9 @@ package ecommerce.membership
 import com.ninjasquad.springmockk.MockkBean
 import ecommerce.membership.internal.MembershipCreate
 import ecommerce.payment.PaymentCreated
-import ecommerce.payment.Product
-import ecommerce.payment.ProductSubtype
-import ecommerce.payment.ProductType
+import ecommerce.product.Product
+import ecommerce.product.ProductSubtype
+import ecommerce.product.ProductType
 import ecommerce.membership.internal.MembershipUpgrade
 import io.mockk.verify
 import org.junit.jupiter.api.Test

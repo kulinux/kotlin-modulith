@@ -1,11 +1,8 @@
 package ecommerce.membership.internal
 
-import com.ninjasquad.springmockk.MockkBean
-import ecommerce.payment.Product
-import io.mockk.impl.annotations.MockK
+import ecommerce.product.Product
 import io.mockk.mockk
 import io.mockk.verify
-import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 

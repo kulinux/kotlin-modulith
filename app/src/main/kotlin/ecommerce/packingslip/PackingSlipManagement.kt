@@ -2,7 +2,7 @@ package ecommerce.packingslip
 
 import ecommerce.packingslip.generator.PackingSlipGenerator
 import ecommerce.payment.PaymentCreated
-import ecommerce.payment.ProductType
+import ecommerce.product.ProductType
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.ApplicationEventPublisher
 import org.springframework.context.event.EventListener

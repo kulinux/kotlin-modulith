@@ -1,4 +1,4 @@
-package ecommerce.payment
+package ecommerce.product
 
 
 enum class ProductType {

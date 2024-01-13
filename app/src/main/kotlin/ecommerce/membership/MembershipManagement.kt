@@ -3,8 +3,8 @@ package ecommerce.membership
 import ecommerce.membership.internal.MembershipCreate
 import ecommerce.membership.internal.MembershipUpgrade
 import ecommerce.payment.PaymentCreated
-import ecommerce.payment.ProductSubtype
-import ecommerce.payment.ProductType
+import ecommerce.product.ProductSubtype
+import ecommerce.product.ProductType
 import org.springframework.context.event.EventListener
 import org.springframework.stereotype.Service
 
