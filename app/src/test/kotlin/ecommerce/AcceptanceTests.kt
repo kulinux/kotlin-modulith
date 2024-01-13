@@ -1,11 +1,10 @@
 package ecommerce
 
 import ecommerce.inventory.RoyaltyManagement
-import ecommerce.payment.PaymentCreated
-import ecommerce.payment.Product
-import ecommerce.payment.ProductSubtype
-import ecommerce.payment.ProductType
 import ecommerce.membership.MembershipManagement
+import ecommerce.order.OrderSubmitted
+import ecommerce.order.Source
+import ecommerce.payment.*
 import ecommerce.shipping.ShippingManagement
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
@@ -68,6 +67,18 @@ class AcceptanceTests {
             .andWaitForStateChange { membership.count() }
 
         assertThat(shipping.count()).isNull()
+    }
+
+    @Test
+    fun `If we accept an order over the web, then we have to wait for payment to arrive`(scenario: Scenario) {
+        //when order is submitted over the web
+        scenario.publish(OrderSubmitted(Product(ProductType.MEMBERSHIP), Source.WEB))
+            .andWaitForEventOfType(PaymentConfirmed::class.java)
+            .toArrive()
+    }
+
+    fun `If we accept an order over the web that its a credit-card order In the case of credit card orders, we can process the order immediately and ship the goods, but only if the goods are in stock If they are not currently in stock, we have to delay processing credit card orders until the become available again`() {
+
     }
 
 }

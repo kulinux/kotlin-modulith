@@ -1,0 +1,3 @@
+package ecommerce.payment
+
+class PaymentConfirmed
