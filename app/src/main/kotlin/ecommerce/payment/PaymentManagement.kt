@@ -1,5 +1,6 @@
 package ecommerce.payment
 
+import ecommerce.order.OrderPlaced
 import ecommerce.order.OrderSubmitted
 import ecommerce.order.Payment
 import ecommerce.product.Product
@@ -11,8 +12,8 @@ import org.springframework.stereotype.Service
 class PaymentManagement(val events: ApplicationEventPublisher) {
 
     @EventListener
-    fun on(event: OrderSubmitted) {
-        if(event.payment != Payment.CREDIT_CARD) {
+    fun on(event: OrderPlaced) {
+        if(event.orderSubmitted.payment != Payment.CREDIT_CARD) {
             Thread.sleep(5000)
         }
         events.publishEvent(PaymentConfirmed())
